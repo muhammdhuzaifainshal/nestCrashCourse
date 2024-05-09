@@ -1,0 +1,28 @@
+you can generate modules, service
+same architecture module <- controllers <- service
+pipes are just functions that transform types without changing the original data
+
+
+
+create moduels with nest g module
+install 2 prisma dependencies npm i -D prisma && npm i @prisma/client
+then run 
+npx prisma init
+
+update models to schema.prisma
+after that run; npx prisma migrate dev then npx prisma generate
+
+in prisma module extends the prisma client to contain the logic to connect our app to db
+
+now for validation you can use pipes but using pipes for every req.body field will result in excess code
+so use custom-validation and custom-transform library
+
+for above libs u have to tell app to use libs validation pipes not builtin validation pipes
+ app.useGlobalPipes(new ValidationPipe);
+ add above in main.ts
+
+for jwt(hashing) work use argon2 but bcrypt can also be used
+
+for authentication install a bunch of libraries:
+https://docs.nestjs.com/recipes/passport
+
